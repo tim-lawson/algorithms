@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.svg-renderer {
+  position: relative;
+}
+
+.svg-renderer svg {
+  position: relative;
+  top: 0;
+  bottom: 0;
+}
