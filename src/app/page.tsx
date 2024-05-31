@@ -14,7 +14,7 @@ export default function Home() {
           ). This site hosts the algorithms I use for speedcubing.
         </p>
         <p>The algorithms are from:</p>
-        <ul className="list-disc pl-6">
+        <ul className="list-disc pl-8">
           <li>
             <ExternalLink href="https://www.cuberoot.me">CubeRoot</ExternalLink>
           </li>
@@ -28,10 +28,30 @@ export default function Home() {
               Cube Alg WB
             </ExternalLink>
           </li>
+          <li>
+            <ExternalLink href="https://www.speedsolving.com/wiki/index.php">
+              SpeedSolving.com
+            </ExternalLink>
+          </li>
         </ul>
         <p>
           This site is not a comprehensive resource and will change, but I hope
           you find it useful.
+        </p>
+        <p>
+          The source code is available on{" "}
+          <ExternalLink href="https://github.com/tslwn/algorithms">
+            GitHub
+          </ExternalLink>
+          . It depends on the{" "}
+          <ExternalLink href="https://tdecker91.github.io/puzzle-gen/">
+            PuzzleGen
+          </ExternalLink>{" "}
+          and{" "}
+          <ExternalLink href="https://js.cubing.net/cubing/">
+            cubing.js
+          </ExternalLink>{" "}
+          libraries.
         </p>
       </div>
     </Layout>
