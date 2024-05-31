@@ -54,7 +54,7 @@ export const edges: AlgorithmGroup = {
 };
 
 export const corners: AlgorithmGroup = {
-  id: "corners",
+  id: "pll-corners",
   label: "Corners only",
   cases: [
     casePll("Aa", [

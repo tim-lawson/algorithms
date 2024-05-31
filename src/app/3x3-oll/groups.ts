@@ -68,7 +68,7 @@ export const w: AlgorithmGroup = {
 };
 
 export const corners: AlgorithmGroup = {
-  id: "corners",
+  id: "oll-corners",
   label: "Corners oriented",
   cases: [
     caseOll(["28", "A"].join(" / "), [
