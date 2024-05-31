@@ -12,7 +12,9 @@ export const useLocalState = <S>(
     if (!IS_CLIENT) {
       return initialState;
     }
+
     const item = window.localStorage.getItem(key);
+
     try {
       return item ? JSON.parse(item) : initialState;
     } catch (error) {
@@ -34,9 +36,11 @@ export const useLocalState = <S>(
       const isFunction = (x: unknown): x is (prev: S) => S =>
         typeof x === "function";
       const next = isFunction(action) ? action(prev.current) : action;
+
       if (IS_CLIENT) {
         window.localStorage.setItem(key, JSON.stringify(next));
       }
+
       setState(next);
     },
     [key],
@@ -44,6 +48,7 @@ export const useLocalState = <S>(
 
   const reset = React.useCallback(() => {
     setState(initialState);
+
     if (IS_CLIENT) {
       window.localStorage.removeItem(key);
     }

@@ -7,6 +7,7 @@ import { countHtm } from "@/utils";
 
 function SVG({ size, algorithm }: { size: number; algorithm: AlgorithmCase }) {
   useSVG(size, algorithm);
+
   return (
     <div className="h-[72px] w-[72px] flex justify-center" id={algorithm.id} />
   );
@@ -16,7 +17,9 @@ function Label({ value }: { value: string | string[] | undefined }) {
   if (value === undefined) {
     return null;
   }
+
   const values = Array.isArray(value) ? value : [value];
+
   return (
     <span className="text-mauve9 text-sm font-medium tracking-widest">
       {values.join(", ")}
@@ -32,6 +35,7 @@ function CaseLabel({ value }: { value: string | undefined }) {
   if (value === undefined) {
     return null;
   }
+
   return (
     <span className="text-mauve9 text-xs font-medium tracking-wider">
       {value}

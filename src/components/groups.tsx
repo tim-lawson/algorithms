@@ -19,6 +19,7 @@ export function GroupsAccordion() {
 
 export function Groups() {
   const { data } = usePageContext();
+
   return (
     <ul className="space-y-2">
       {data.groups.map((group) => (
