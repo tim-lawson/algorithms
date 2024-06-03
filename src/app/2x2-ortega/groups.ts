@@ -91,9 +91,8 @@ export const pbl: AlgorithmGroup = {
       },
     ]),
     casePbl("Opposite Opposite", [
-      { case: "R2 F2 R2" },
-      { case: "R2 B2 R2" },
-      { case: "x R2 U2 R2" },
+      { case: "R2' F2 R2" },
+      { case: "R2 B2 R2'" },
     ]),
     casePbl("Adjacent Adjacent", [
       { case: "R2 U' B2 U2 R2 U' R2" },
