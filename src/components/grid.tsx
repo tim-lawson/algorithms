@@ -23,9 +23,12 @@ export function Grid() {
 function Group({ group, size }: { group: AlgorithmGroup; size: number }) {
   return (
     <li key={group.id}>
-      <h2 className="px-4 py-2 text-mauve9 text-lg font-medium">
-        {group.label}
-      </h2>
+      <div className="flex items-baseline">
+        <h2 className="px-4 py-2 text-mauve9 text-lg font-medium">
+          {group.label}
+        </h2>
+        <span className="text-sm text-mauve8">{group.cases.length} cases</span>
+      </div>
       <ul className="w-full grid grid-flow-row gap-4 grid-cols-1 xl:grid-cols-2">
         {group.cases.map((algorithm) => (
           <GridItem key={algorithm.id} size={size} algorithm={algorithm} />
