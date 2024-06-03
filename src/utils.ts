@@ -91,6 +91,7 @@ export function createMaskOnlyCenters(size: number): number[] {
 }
 
 export const rotations = {
+  default: [{ x: 43, y: 35, z: 29 }],
   top: [{ x: 90, y: 50, z: 90 }],
 };
 
