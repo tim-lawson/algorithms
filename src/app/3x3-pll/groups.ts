@@ -187,7 +187,7 @@ export const g: AlgorithmGroup = {
     casePll("Ga", [
       {
         label: "Headlights left / bar front, RUD-gen",
-        case: "R2' U (R' U R' U') (R U' R2 U' D) (R' U R D')",
+        case: "R2 U (R' U R' U') (R U' R2 U' D) (R' U R D')",
       },
     ]),
     casePll("Gb", [
