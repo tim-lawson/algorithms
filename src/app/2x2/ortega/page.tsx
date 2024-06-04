@@ -1,18 +1,17 @@
 "use client";
 
 import React from "react";
-import { groups } from "@/app/3x3-oll/groups";
+import { groups, size } from "@/app/2x2/ortega/groups";
 import Page from "@/components/page";
 import { PageData } from "@/types";
-import { size } from "@/utils-3x3";
 
 const data: PageData = {
-  id: "3x3-oll",
-  label: "3x3 OLL",
+  id: "2x2-ortega",
+  label: "2x2 Ortega",
   size,
   groups,
 };
 
-export default function Page3x3OLL() {
+export default function Page2x2Ortega() {
   return <Page data={data} />;
 }

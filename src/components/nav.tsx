@@ -12,9 +12,9 @@ interface NavLink {
 
 const links: NavLink[] = [
   { href: "/", children: "About" },
-  { href: "/2x2-ortega", children: "2x2 Ortega" },
-  { href: "/3x3-oll", children: "3x3 OLL" },
-  { href: "/3x3-pll", children: "3x3 PLL" },
+  { href: "/2x2/ortega", children: "2x2 Ortega" },
+  { href: "/3x3/oll", children: "3x3 OLL" },
+  { href: "/3x3/pll", children: "3x3 PLL" },
   { href: "/4x4", children: "4x4" },
 ];
 

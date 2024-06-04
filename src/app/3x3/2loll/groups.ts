@@ -1,5 +1,5 @@
+import { algorithmCase, masks } from "@/app/3x3/utils";
 import { AlgorithmGroup } from "@/types";
-import { algorithmCase, masks } from "@/utils-3x3";
 
 const caseEoll = algorithmCase("eoll", masks.eoll);
 

@@ -1,5 +1,5 @@
+import { algorithmCase } from "@/app/3x3/utils";
 import { AlgorithmGroup } from "@/types";
-import { algorithmCase } from "@/utils-3x3";
 
 const casePll = algorithmCase("pll");
 
