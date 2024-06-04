@@ -21,7 +21,7 @@ export const l2e: AlgorithmGroup = {
       rotations.top,
     )("Front", "L y'", ["Uw' (R U R' F R' F' R) Uw"]),
     algorithmCase(
-      "group",
+      group,
       {
         U: mask(size, { centers: true, edges: [13, 14], corners: false }),
         R: mask(size, { centers: true, edges: [7, 11], corners: false }),

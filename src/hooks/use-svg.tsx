@@ -1,3 +1,4 @@
+import { Alg } from "cubing/alg";
 import React from "react";
 import { SVG } from "sr-puzzlegen";
 import { AlgorithmCase, VisualizerType } from "@/types";
@@ -10,12 +11,18 @@ export function useSVG(size: number, algorithm: AlgorithmCase): void {
 
     const [first] = algorithm.algorithms;
 
+    let alg = first.case;
+    if (first.casePrefix) {
+      alg = alg + " " + first.casePrefix;
+    }
+    alg = Alg.fromString(alg).expand().toString();
+
     // render svg into container
     SVG(`#${algorithm.id}`, algorithm.type ?? VisualizerType.CUBE, {
       width: WIDTH,
       height: HEIGHT,
       puzzle: {
-        case: first.case + (first.casePrefix ?? ""),
+        case: alg,
         mask: first.mask,
         rotations: first.rotations,
         // @ts-ignore this is CubeOptions, not PuzzleOptions
@@ -26,7 +33,7 @@ export function useSVG(size: number, algorithm: AlgorithmCase): void {
           F: { value: "#0D74CE" }, // blue
           D: { value: "#FCFCFC" }, // white
           L: { value: "#F76B15" }, // orange
-          B: { value: "#3E9B4F" }, // green
+          B: { value: "#46A758" }, // green
         },
       },
     });

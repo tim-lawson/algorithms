@@ -16,6 +16,7 @@ const links: NavLink[] = [
   { href: "/3x3/oll", children: "3x3 OLL" },
   { href: "/3x3/pll", children: "3x3 PLL" },
   { href: "/4x4", children: "4x4" },
+  { href: "/5x5/l2e", children: "5x5 L2E" },
 ];
 
 export function NavAccordion() {
