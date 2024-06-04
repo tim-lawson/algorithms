@@ -96,7 +96,7 @@ export const rotations = {
 };
 
 // this is an annoying hack
-export function replaceInnerSlices(algorithm: string) {
+export function replaceInnerSlices(algorithm: string): string {
   return algorithm
     .replace(/Uw2 U2/g, "u2")
     .replace(/Rw2 R2/g, "r2")
@@ -104,6 +104,10 @@ export function replaceInnerSlices(algorithm: string) {
     .replace(/Dw2 D2/g, "d2")
     .replace(/Lw2 L2/g, "l2")
     .replace(/Bw2 B2/g, "b2");
+}
+
+export function replaceUDMoves(algorithm: string): string {
+  return algorithm.replace(/U' D/g, "U'D").replace(/U D'/g, "UD'");
 }
 
 export function countHtm(algorithm: string): number {

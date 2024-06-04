@@ -3,7 +3,7 @@ import { LearnToggle } from "@/components/learn-toggle";
 import { MoveCount } from "@/components/move-count";
 import { useSVG } from "@/hooks/use-svg";
 import { AlgorithmCase } from "@/types";
-import { countHtm, replaceInnerSlices } from "@/utils";
+import { countHtm, replaceInnerSlices, replaceUDMoves } from "@/utils";
 
 function SVG({ size, algorithm }: { size: number; algorithm: AlgorithmCase }) {
   useSVG(size, algorithm);
@@ -46,7 +46,7 @@ function CaseLabel({ value }: { value: string | undefined }) {
 function Case({ value }: { value: string }) {
   return (
     <span className="text-mauve12 text-sm font-medium lg:text-md min-h-5">
-      {replaceInnerSlices(value)}
+      {replaceUDMoves(replaceInnerSlices(value))}
     </span>
   );
 }
