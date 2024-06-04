@@ -10,11 +10,11 @@ export const edges: AlgorithmGroup = {
     casePll("Ua", [
       {
         label: "Bar back, RU-gen",
-        case: "(R U' R U) (R U R U') (R' U' R2)",
+        case: "(R U' R U) R U R U' R' U' R2",
       },
       {
         label: "Bar back, M-slice",
-        case: "M2' U M U2 M' U M2'",
+        case: "(M2' U) (M U2') M' U M2'",
       },
       {
         label: "Bar left, RUS-gen",
@@ -24,7 +24,7 @@ export const edges: AlgorithmGroup = {
     casePll("Ub", [
       {
         label: "Bar back, M-slice",
-        case: "M2' U' M U2 M' U' M2'",
+        case: "(M2' U') (M U2) M' U' M2'",
       },
       {
         label: "Bar back, RU-gen",
@@ -37,7 +37,7 @@ export const edges: AlgorithmGroup = {
     ]),
     casePll("H", [
       {
-        case: "(M2' U M2') U2 (M2' U M2')",
+        case: "(M2' U ) (M2' U2) M2' U M2'",
       },
     ]),
     casePll("Z", [
@@ -66,7 +66,7 @@ export const corners: AlgorithmGroup = {
     casePll("Ab", [
       {
         label: "Headlights left, RUD-gen",
-        case: "x R2' D2 (R U R' D2) R U' R x'",
+        case: "x R2' D2 (R U R' D2) (R U' R) x'",
       },
     ]),
     casePll("E", [
@@ -91,7 +91,7 @@ export const adjacent: AlgorithmGroup = {
     casePll("Rb", [
       {
         label: "Headlights left / bar back",
-        case: "(R2' F R U R U' R' F') (R U2' R' U2 R)",
+        case: "(R2' F R U R U') (R' F' R U2') (R' U2 R)",
       },
       {
         label: "Headlights front / bar left",
@@ -121,13 +121,13 @@ export const adjacent: AlgorithmGroup = {
     casePll("T", [
       {
         label: "RUF-gen",
-        case: "(R U R' U') (R' F R2 U' R' U') (R U R' F')",
+        case: "(R U R' U') (R' F R2 U' R') U' (R U R' F')",
       },
     ]),
     casePll("F", [
       {
         label: "Bar front",
-        case: "(R' U R U') (R2' F' U' F U) (R F R' F' R2)",
+        case: "(R' U R U') (R2' F' U' F U) R F (R' F' R2)",
       },
       {
         label: "Bar left, wide",
@@ -164,7 +164,7 @@ export const diagonal: AlgorithmGroup = {
     casePll("Na", [
       {
         label: "Jb extension",
-        case: "(R U R' U) (R U R' F') (R U R' U') R' F R2 U' R' (U2 R U' R')",
+        case: "(R U R' U) (R U R' F') (R U R' U') (R' F R2 U' R') (U2 R U' R')",
       },
     ]),
     casePll("Nb", [
@@ -193,7 +193,7 @@ export const g: AlgorithmGroup = {
     casePll("Gb", [
       {
         label: "Headlights back / bar front, wide",
-        case: "F' U' F (R2 u R' U) (R U' R u') R2'",
+        case: "(F' U' F R2) u (R' U R U' R u') R2'",
       },
       {
         label: "Headlights left / bar right, RUD-gen",
@@ -202,12 +202,12 @@ export const g: AlgorithmGroup = {
     ]),
     casePll("Gc", [
       {
-        label: "Headlights left / bar back, RUD-gen",
-        case: "D R2 U' (R U' R U) R' U R2 (D' U) R U' R'",
-      },
-      {
         label: "Headlights left / bar back, wide",
         case: "(R2' u' R U') (R U R' u) (R2 f R' f')",
+      },
+      {
+        label: "Headlights left / bar back, RUD-gen",
+        case: "D R2 U' (R U' R U) R' U R2 (D' U) R U' R'",
       },
     ]),
     casePll("Gd", [

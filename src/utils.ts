@@ -4,7 +4,7 @@ export const HEIGHT = 72;
 export const WIDTH = 72;
 
 export function hash(value: string): string {
-  return btoa(value).replace(/=/g, "");
+  return btoa(value.replace(/[\(\)]/g, "")).replace(/=/g, "");
 }
 
 interface MaskOptions {
