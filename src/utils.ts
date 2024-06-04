@@ -111,3 +111,19 @@ export function countHtm(algorithm: string): number {
     .expand()
     .experimentalNumChildAlgNodes();
 }
+
+export interface Threshold {
+  value: number;
+  className: string;
+}
+
+export function color(thresholds: Threshold[]) {
+  return function (value: number) {
+    for (const { value: threshold, className } of thresholds) {
+      if (value <= threshold) {
+        return className;
+      }
+    }
+    return "";
+  };
+}

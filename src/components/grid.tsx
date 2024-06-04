@@ -3,13 +3,14 @@ import { GridItem } from "@/components/grid-item";
 import { Hydrated } from "@/hooks/use-hydrated";
 import { usePageContext } from "@/page-context";
 import { AlgorithmGroup } from "@/types";
+import { LearnCount } from "./learn-count";
 
 export function Grid() {
   const { data, groups } = usePageContext();
 
   return (
     <Hydrated>
-      <ul className="w-full flex flex-col gap-4">
+      <ul className="w-full flex flex-col gap-6">
         {data.groups.map((group) => {
           if (groups.get(group.id)) {
             return <Group key={group.id} group={group} size={data.size} />;
@@ -23,11 +24,9 @@ export function Grid() {
 function Group({ group, size }: { group: AlgorithmGroup; size: number }) {
   return (
     <li key={group.id}>
-      <div className="flex items-baseline">
-        <h2 className="px-4 py-2 text-mauve9 text-lg font-medium">
-          {group.label}
-        </h2>
-        <span className="text-sm text-mauve8">{group.cases.length} cases</span>
+      <div className="flex items-center justify-between pl-4 pr-2 py-2">
+        <h2 className="text-mauve9 text-lg font-medium">{group.label}</h2>
+        <LearnCount group={group} />
       </div>
       <ul className="w-full grid grid-flow-row gap-4 grid-cols-1 xl:grid-cols-2">
         {group.cases.map((algorithm) => (
