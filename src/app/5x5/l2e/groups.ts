@@ -58,7 +58,7 @@ const bothChecked: AlgorithmGroup = {
   cases: [
     caseL2e(bothCheckedGroup, "Double edge parity", [
       {
-        case: "r' l (U' R' U R' F R F') r l'",
+        case: "Rw' Lw (U' R' U R' F R F') Rw Lw'",
       },
     ]),
     caseL2e(bothCheckedGroup, "Swap middle", [

@@ -103,7 +103,8 @@ export function replaceInnerSlices(algorithm: string): string {
     .replace(/Fw2 F2/g, "f2")
     .replace(/Dw2 D2/g, "d2")
     .replace(/Lw2 L2/g, "l2")
-    .replace(/Bw2 B2/g, "b2");
+    .replace(/Bw2 B2/g, "b2")
+    .replace(/\(Rw Lw' x'\)/g, "M");
 }
 
 export function replaceUDMoves(algorithm: string): string {

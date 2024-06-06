@@ -16,7 +16,7 @@ export default function Layout({
   return (
     <div
       className={classnames(
-        "relative h-screen p-4 overflow-y-auto",
+        "relative h-screen p-4 lg:pr-0 overflow-y-auto",
         "flex flex-col lg:flex-row lg:gap-x-4",
       )}
     >
@@ -29,7 +29,7 @@ export default function Layout({
           {groups && <GroupsAccordion />}
         </Accordion.Root>
       </header>
-      <main className="w-full grow-1 flex flex-col gap-4 lg:overflow-y-auto text-mauve11">
+      <main className="w-full grow-1 flex flex-col gap-4 lg:pr-4 lg:overflow-y-auto text-mauve11">
         {children}
       </main>
     </div>
