@@ -17,16 +17,16 @@ function caseL2e(
   return algorithmCase(
     group,
     {
-      U: maskEdges([1, 2, 3, 21, 22, 23]),
-      R: maskNone,
-      F: maskEdges([1, 2, 3]),
-      D: maskNone,
-      L: maskNone,
-      B: maskEdges([1, 2, 3]),
+      U: maskEdges([]),
+      R: maskEdges([5, 10, 15]),
+      F: maskEdges([9, 10, 11, 12, 13, 14, 16, 19]),
+      D: maskEdges([]),
+      L: maskEdges([5, 10, 15]),
+      B: maskEdges([9, 10, 11, 12, 13, 14, 16, 19]),
     },
     undefined,
     VisualizerType.CUBE_TOP,
-  )(label, "", algorithms);
+  )(label, "z' x2 Fw2", algorithms);
 }
 
 const bothOrientedGroup = "5x5-l2e-both-oriented";
