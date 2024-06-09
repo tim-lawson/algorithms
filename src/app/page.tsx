@@ -6,8 +6,8 @@ import Layout from "@/components/layout";
 
 export default function Home() {
   return (
-    <Layout title="Tim's Algorithms" groups={false}>
-      <div className="mt-4 md:mt-2 px-4 md:text-lg flex flex-col gap-2">
+    <Layout title="Tim's Algorithms">
+      <div className="px-4 md:text-lg flex flex-col gap-2">
         <p>
           Hello, I&apos;m Tim (
           <ExternalLink href="https://www.worldcubeassociation.org/persons/2024LAWS03">

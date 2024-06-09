@@ -18,7 +18,7 @@ export function GridItem({
 
   return (
     <li key={algorithm.id}>
-      <Box className="pl-3 pr-4">
+      <Box className="pl-3 pr-4 h-full">
         <CollapsiblePrimitive.Root
           className="flex flex-col gap-4"
           open={open}

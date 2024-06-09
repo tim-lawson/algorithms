@@ -2,16 +2,17 @@
 
 import React from "react";
 import { Grid } from "@/components/grid";
+import { Groups } from "@/components/groups";
 import Layout from "@/components/layout";
-import { PageContextProvider } from "@/page-context";
 import { PageData } from "@/types";
 
 export default function Page({ data }: { data: PageData }) {
   return (
-    <PageContextProvider data={data}>
-      <Layout title={data.label}>
-        <Grid />
-      </Layout>
-    </PageContextProvider>
+    <Layout
+      title={`Tim's Algorithms / ${data.label}`}
+      groups={<Groups groups={data.groups} />}
+    >
+      <Grid data={data} />
+    </Layout>
   );
 }

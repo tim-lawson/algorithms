@@ -1,37 +1,32 @@
-import classnames from "classnames";
+"use client";
+
 import React from "react";
-import { NavAccordion } from "@/components/nav";
-import { Accordion } from "./accordion";
-import { GroupsAccordion } from "./groups";
+import { Nav } from "@/components/nav";
+import { PageContextProvider } from "@/page-context";
 
 export default function Layout({
   title,
   children,
-  groups = true,
+  groups,
 }: {
   title: string;
   children: React.ReactNode;
-  groups?: boolean;
+  groups?: React.ReactNode;
 }) {
   return (
-    <div
-      className={classnames(
-        "relative h-screen p-4 lg:pr-0 overflow-y-auto",
-        "flex flex-col lg:flex-row lg:gap-x-4",
-      )}
-    >
-      <header className="grow-0 shrink-0 lg:basis-72 flex flex-col mb-6">
-        <h1 className="px-4 py-2 text-mauve10 text-lg font-medium tracking-widest">
-          {title}
-        </h1>
-        <Accordion.Root>
-          <NavAccordion />
-          {groups && <GroupsAccordion />}
-        </Accordion.Root>
-      </header>
-      <main className="w-full grow-1 flex flex-col gap-4 lg:pr-4 lg:overflow-y-auto text-mauve11">
-        {children}
-      </main>
-    </div>
+    <PageContextProvider>
+      <div className="relative h-screen p-4 overflow-y-auto flex flex-col">
+        <header className="grow-0 shrink-0 flex flex-col mb-6 gap-4">
+          <h1 className="mt-2 px-4 text-mauve10 text-lg font-medium tracking-widest">
+            {title}
+          </h1>
+          <Nav />
+          {groups}
+        </header>
+        <main className="w-full flex flex-col gap-4 text-mauve11">
+          {children}
+        </main>
+      </div>
+    </PageContextProvider>
   );
 }

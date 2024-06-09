@@ -1,32 +1,21 @@
-import * as Checkbox from "@radix-ui/react-checkbox";
+import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
 import { CheckIcon } from "@radix-ui/react-icons";
 import classnames from "classnames";
 import React from "react";
-import { Accordion } from "@/components/accordion";
 import { LearnCount } from "@/components/learn-count";
-import { useGroup, usePageContext } from "@/page-context";
+import { useGroup } from "@/page-context";
 import { AlgorithmGroup } from "@/types";
 
-export function GroupsAccordion() {
+export function Groups({ groups }: { groups: AlgorithmGroup[] }) {
   return (
-    <Accordion.Item value="groups">
-      <Accordion.Trigger>Groups</Accordion.Trigger>
-      <Accordion.Content>
-        <Groups />
-      </Accordion.Content>
-    </Accordion.Item>
-  );
-}
-
-export function Groups() {
-  const { data } = usePageContext();
-
-  return (
-    <ul className="space-y-2">
-      {data.groups.map((group) => (
-        <Group key={group.id} group={group} />
-      ))}
-    </ul>
+    <div className="px-2">
+      <h2 className="pl-2 mb-2 text-mauve9 text-lg font-medium">Groups</h2>
+      <ul className="flex flex-col gap-1">
+        {groups.map((group) => (
+          <Group key={group.id} group={group} />
+        ))}
+      </ul>
+    </div>
   );
 }
 
@@ -34,26 +23,26 @@ function Group({ group }: { group: AlgorithmGroup }) {
   const [checked, onCheckedChange] = useGroup(group.id);
 
   return (
-    <li className="flex items-center justify-between">
+    <li className="flex items-center justify-between gap-4">
       <span className="flex items-center gap-2 text-mauve11">
-        <Checkbox.Root
+        <CheckboxPrimitive.Root
           id={group.id}
           checked={checked}
           onCheckedChange={onCheckedChange}
           className={classnames(
-            "flex h-4 w-4 items-center justify-center rounded bg-mauve5",
-            "focus:outline-none focus-visible:ring focus-visible:ring-mauve11  focus-visible:ring-opacity-75",
+            "flex h-4 w-4 items-center justify-center rounded bg-white",
+            "focus:outline-none focus-visible:ring focus-visible:ring-mauve7  focus-visible:ring-opacity-75",
           )}
         >
-          <Checkbox.Indicator>
+          <CheckboxPrimitive.Indicator>
             <CheckIcon className="h-4 w-4" />
-          </Checkbox.Indicator>
-        </Checkbox.Root>
+          </CheckboxPrimitive.Indicator>
+        </CheckboxPrimitive.Root>
         <label className="text-mauve11 text-sm" htmlFor={group.id}>
           {group.label}
         </label>
       </span>
-      <LearnCount group={group} />
+      <LearnCount.Group group={group} />
     </li>
   );
 }

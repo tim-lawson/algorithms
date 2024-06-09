@@ -15,7 +15,7 @@ export function CollapseTrigger({
   const isOpenable = algorithms.length > 1;
 
   if (!isOpenable) {
-    return null;
+    return <div aria-hidden className="w-6" />;
   }
 
   return (
@@ -28,7 +28,7 @@ export function CollapseTrigger({
               <button
                 className={classnames(
                   "flex shrink-0 h-6 w-6 items-center justify-center rounded-full select-none",
-                  "hover:bg-mauve3 text-mauve11 ring-mauve11",
+                  "hover:bg-mauve3 text-mauve11 ring-mauve7",
                   "focus:outline-none focus-visible:ring focus-visible:ring-opacity-75",
                 )}
               >

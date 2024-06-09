@@ -14,17 +14,7 @@ export const parity: AlgorithmGroup = {
       masks.U,
       undefined,
       type,
-    )("OLL double", "", [
-      "Rw U2 x Rw U2 Rw U2 Rw' U2 Lw U2 Rw' U2 Rw U2 Rw' U2 Rw'",
-    ]),
-    algorithmCase(
-      group,
-      masks.U,
-      undefined,
-      type,
-    )("OLL single", "", [
-      "R U2 R' U' (Rw U2 x Rw U2 Rw U2 Rw' U2 Lw U2 Rw' U2 Rw U2 Rw' U2 Rw') F R' F' R",
-    ]),
+    )("OLL", "", ["Rw U2 x Rw U2 Rw U2 Rw' U2 Lw U2 Rw' U2 Rw U2 Rw' U2 Rw'"]),
     algorithmCase(
       group,
       undefined,

@@ -19,10 +19,10 @@ export function LearnToggle({ id }: { id: string }) {
               onPressedChange={toggle}
               className={classnames(
                 "flex shrink-0 h-6 w-6 items-center justify-center rounded-full select-none",
-                "hover:bg-mauve3 text-mauve11 ring-mauve11",
+                "hover:bg-mauve3 text-mauve11 ring-mauve7",
                 "focus:outline-none focus-visible:ring focus-visible:ring-opacity-75",
                 "radix-state-on:bg-green5 radix-state-on:text-green11 radix-state-on:ring-green11",
-                "radix-state-off:bg-none radix-state-off:text-mauve11 radix-state-off:ring-mauve11",
+                "radix-state-off:bg-none radix-state-off:text-mauve11 radix-state-off:ring-mauve7",
               )}
             >
               <Icons.Learn value={value} />

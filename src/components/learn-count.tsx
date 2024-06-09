@@ -1,7 +1,7 @@
 import classnames from "classnames";
 import { Chip } from "@/components/chip";
 import { usePageContext } from "@/page-context";
-import { AlgorithmGroup } from "@/types";
+import { AlgorithmGroup, PageData } from "@/types";
 import { color } from "@/utils";
 
 const learn = [
@@ -33,16 +33,18 @@ const learn = [
 
 const colorLearn = color(learn);
 
-export function LearnCount({ group }: { group: AlgorithmGroup }) {
+function cases(group: AlgorithmGroup, get: (id: string) => boolean) {
+  return group.cases.reduce((count, algorithm) => {
+    return algorithm.algorithms.some(({ id }) => get(id)) ? count + 1 : count;
+  }, 0);
+}
+
+function Group({ group }: { group: AlgorithmGroup }) {
   const count = group.cases.length;
 
   const { learned } = usePageContext();
 
-  const learn = group.cases.reduce((count, algorithm) => {
-    return algorithm.algorithms.some(({ id }) => learned.get(id))
-      ? count + 1
-      : count;
-  }, 0);
+  const learn = cases(group, (id) => learned.get(id));
 
   const fraction = learn / count;
 
@@ -52,3 +54,30 @@ export function LearnCount({ group }: { group: AlgorithmGroup }) {
     </Chip>
   );
 }
+
+function Page({ page }: { page: PageData }) {
+  const count = page.groups.reduce(
+    (count, group) => count + group.cases.length,
+    0,
+  );
+
+  const { learned } = usePageContext();
+
+  const learn = page.groups.reduce(
+    (count, group) => count + cases(group, (id) => learned.get(id)),
+    0,
+  );
+
+  const fraction = learn / count;
+
+  return (
+    <Chip className={classnames("text-xs py-0.5", colorLearn(fraction))}>
+      {learn} / {count}
+    </Chip>
+  );
+}
+
+export const LearnCount = {
+  Group,
+  Page,
+};
