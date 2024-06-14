@@ -8,9 +8,9 @@ import { AlgorithmGroup } from "@/types";
 
 export function Groups({ groups }: { groups: AlgorithmGroup[] }) {
   return (
-    <div className="px-2">
-      <h2 className="pl-2 mb-2 text-mauve9 text-lg font-medium">Groups</h2>
-      <ul className="flex flex-col gap-1">
+    <div>
+      <h2 className="pl-4 pr-2 py-2 text-mauve9 text-lg font-medium">Groups</h2>
+      <ul className="px-2 flex flex-col gap-1">
         {groups.map((group) => (
           <Group key={group.id} group={group} />
         ))}

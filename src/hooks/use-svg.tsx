@@ -1,30 +1,35 @@
 import { Alg } from "cubing/alg";
 import React from "react";
 import { SVG } from "sr-puzzlegen";
-import { AlgorithmCase, VisualizerType } from "@/types";
+import { Algorithm, VisualizerType } from "@/types";
 import { HEIGHT, WIDTH } from "@/utils";
 
-export function useSVG(size: number, algorithm: AlgorithmCase): void {
+export function useSVG(
+  id: string,
+  size: number,
+  algorithm: Algorithm,
+  type = VisualizerType.CUBE,
+  width = WIDTH,
+  height = HEIGHT,
+): void {
   React.useEffect(() => {
     // clear container
-    document.getElementById(algorithm.id)!.innerHTML = "";
+    document.getElementById(id)!.innerHTML = "";
 
-    const [first] = algorithm.algorithms;
-
-    let alg = first.case;
-    if (first.casePrefix) {
-      alg = alg + " " + first.casePrefix;
+    let alg = algorithm.case;
+    if (algorithm.casePrefix) {
+      alg = alg + " " + algorithm.casePrefix;
     }
     alg = Alg.fromString(alg).expand().toString();
 
     // render svg into container
-    SVG(`#${algorithm.id}`, algorithm.type ?? VisualizerType.CUBE, {
-      width: WIDTH,
-      height: HEIGHT,
+    SVG(`#${id}`, type, {
+      width,
+      height,
       puzzle: {
         case: alg,
-        mask: first.mask,
-        rotations: first.rotations,
+        mask: algorithm.mask,
+        rotations: algorithm.rotations,
         // @ts-ignore this is CubeOptions, not PuzzleOptions
         size,
         scheme: {
@@ -37,5 +42,5 @@ export function useSVG(size: number, algorithm: AlgorithmCase): void {
         },
       },
     });
-  }, [size, algorithm]);
+  }, [size, algorithm, id, type, width, height]);
 }

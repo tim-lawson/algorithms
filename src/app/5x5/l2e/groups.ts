@@ -85,7 +85,7 @@ const orientedChecked: AlgorithmGroup = {
   cases: [
     caseL2e(orientedCheckedGroup, "Single edge parity", [
       {
-        case: "Rw U2 x Rw U2 Rw U2 3Rw' U2 Lw U2 Rw' U2 Rw U2 Rw' U2 Rw'",
+        case: "(Rw U2 x Rw U2 Rw U2) 3Rw' (U2 Lw U2 Rw' U2 Rw U2 Rw' U2 Rw')",
       },
     ]),
     caseL2e(orientedCheckedGroup, "Swap middle", [

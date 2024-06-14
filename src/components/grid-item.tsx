@@ -67,3 +67,27 @@ export function GridItem({
     </li>
   );
 }
+
+export function GridItemSimple({
+  algorithm,
+  size,
+  label,
+  case: caseValue,
+}: {
+  algorithm: AlgorithmCase;
+  size: number;
+  label?: string;
+  case: string;
+}) {
+  return (
+    <li key={algorithm.id}>
+      <Box className="flex items-center gap-2">
+        <Alg.SVG algorithm={algorithm} size={size} />
+        <div className="min-h-[72px] py-1 flex flex-col justify-center gap-1">
+          <Alg.Label value={label} />
+          <Alg.Case value={caseValue} />
+        </div>
+      </Box>
+    </li>
+  );
+}

@@ -6,7 +6,7 @@ import { AlgorithmCase } from "@/types";
 import { countHtm, replaceInnerSlices, replaceUDMoves } from "@/utils";
 
 function SVG({ size, algorithm }: { size: number; algorithm: AlgorithmCase }) {
-  useSVG(size, algorithm);
+  useSVG(algorithm.id, size, algorithm.algorithms[0], algorithm.type);
 
   return (
     <div className="h-[72px] w-[72px] flex justify-center" id={algorithm.id} />

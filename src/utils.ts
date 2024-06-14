@@ -90,12 +90,19 @@ export function createMaskOnlyCenters(size: number): number[] {
   return mask(size, { centers: true, edges: false, corners: false });
 }
 
+export function createMaskOnlyEdges(
+  size: number,
+  edges: boolean | number[] = true,
+): number[] {
+  return mask(size, { centers: false, edges, corners: false });
+}
+
 export const rotations = {
   default: [{ x: 43, y: 35, z: 29 }],
   top: [{ x: 90, y: 50, z: 90 }],
 };
 
-// this is an annoying hack
+// TODO: this is a really annoying hack
 export function replaceInnerSlices(algorithm: string): string {
   return algorithm
     .replace(/Uw2 U2/g, "u2")
@@ -104,7 +111,30 @@ export function replaceInnerSlices(algorithm: string): string {
     .replace(/Dw2 D2/g, "d2")
     .replace(/Lw2 L2/g, "l2")
     .replace(/Bw2 B2/g, "b2")
-    .replace(/\(Rw Lw' x'\)/g, "M");
+    .replace(/2Uw U'/g, "2u")
+    .replace(/2Rw R'/g, "2r")
+    .replace(/2Fw F'/g, "2f")
+    .replace(/2Dw D'/g, "2d")
+    .replace(/2Lw L'/g, "2l")
+    .replace(/2Bw B'/g, "2b")
+    .replace(/2Uw' U/g, "2u'")
+    .replace(/2Rw' R/g, "2r'")
+    .replace(/2Fw' F/g, "2f'")
+    .replace(/2Dw' D/g, "2d'")
+    .replace(/2Lw' L/g, "2l'")
+    .replace(/2Bw' B/g, "2b'")
+    .replace(/3Uw 2Uw'/g, "3u")
+    .replace(/3Rw 2Rw'/g, "3r")
+    .replace(/3Fw 2Fw'/g, "3f")
+    .replace(/3Dw 2Dw'/g, "3d")
+    .replace(/3Lw 2Lw'/g, "3l")
+    .replace(/3Bw 2Bw'/g, "3b")
+    .replace(/3Uw' 2Uw/g, "3u'")
+    .replace(/3Rw' 2Rw/g, "3r'")
+    .replace(/3Fw' 2Fw/g, "3f'")
+    .replace(/3Dw' 2Dw/g, "3d'")
+    .replace(/3Lw' 2Lw/g, "3l'")
+    .replace(/3Bw' 2Bw/g, "3b'");
 }
 
 export function replaceUDMoves(algorithm: string): string {

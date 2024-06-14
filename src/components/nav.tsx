@@ -5,6 +5,7 @@ import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
 import classnames from "classnames";
 import Link, { LinkProps } from "next/link";
 import React from "react";
+import { data as data2x2Ortega } from "@/app/2x2/ortega/data";
 import { data as data3x3OLL } from "@/app/3x3/oll/data";
 import { data as data3x3PLL } from "@/app/3x3/pll/data";
 import { data as data5x5L2C } from "@/app/5x5/l2c/data";
@@ -62,7 +63,7 @@ function ItemLink({
 
 export function Nav() {
   return (
-    <NavigationMenuPrimitive.Root className="relative z-[1] flex w-screen justify-start">
+    <NavigationMenuPrimitive.Root className="relative z-[1] flex justify-start">
       <NavigationMenuPrimitive.List
         className={classnames(
           "m-0 p-1 flex gap-1.5 rounded-md list-none",
@@ -84,7 +85,17 @@ export function Nav() {
           </Content>
         </NavigationMenuPrimitive.Item>
 
-        <ItemLink href="/2x2/ortega">2x2</ItemLink>
+        <NavigationMenuPrimitive.Item>
+          <Trigger>2x2</Trigger>
+
+          <Content>
+            <ListItemLink href="/2x2/ortega" title="Ortega">
+              <LearnCount.Page page={data2x2Ortega} />
+            </ListItemLink>
+          </Content>
+        </NavigationMenuPrimitive.Item>
+
+        {/* TODO: 4x4 and 5x5 pages aren't helpful? */}
 
         <ItemLink href="/4x4">4x4</ItemLink>
 
@@ -100,6 +111,8 @@ export function Nav() {
             </ListItemLink>
           </Content>
         </NavigationMenuPrimitive.Item>
+
+        <ItemLink href="/nxn">N×N</ItemLink>
 
         <NavigationMenuPrimitive.Indicator
           className={classnames(
