@@ -7,6 +7,7 @@ import { sliceFlipSliceProps } from "@/app/nxn/slice-flip-slice";
 import { nxn, sizes } from "@/app/nxn/utils";
 import { GridItemSimple } from "@/components/grid-item";
 import Layout from "@/components/layout";
+import { l2cProps } from "./comms";
 
 export default function PageNxN() {
   return (
@@ -25,6 +26,9 @@ export default function PageNxN() {
               <h2 className="text-mauve9 text-lg font-medium">{nxn(size)}</h2>
             </div>
             <ul className="w-full grid grid-flow-row lg:auto-rows-fr gap-4 grid-cols-1 lg:grid-cols-2">
+              {l2cProps(size).map((props) => (
+                <GridItemSimple key={props.algorithm.id} {...props} />
+              ))}
               {sliceFlipSliceProps(size).map((props) => (
                 <GridItemSimple key={props.algorithm.id} {...props} />
               ))}
